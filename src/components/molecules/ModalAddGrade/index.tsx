@@ -123,6 +123,7 @@ const ModalAddGrade: React.FC<ModalAddGradeProps> = ({ bim }) => {
 
             <div className="p-4 grid grid-cols-[130px_130px] lg:grid-cols-4 gap-4">
               <Button
+              active={disciplina === disciplinaEnum.BIOLOGIA ? true : false}
                 onClick={() => {
                   setDisciplina(disciplinaEnum.BIOLOGIA);
                 }}
@@ -132,6 +133,7 @@ const ModalAddGrade: React.FC<ModalAddGradeProps> = ({ bim }) => {
                 Biologia
               </Button>
               <Button
+              active={disciplina === disciplinaEnum.ARTES ? true : false}
                 onClick={() => {
                   setDisciplina(disciplinaEnum.ARTES);
                 }}
@@ -141,6 +143,7 @@ const ModalAddGrade: React.FC<ModalAddGradeProps> = ({ bim }) => {
                 Artes
               </Button>
               <Button
+              active={disciplina === disciplinaEnum.GEOGRAFIA ? true : false}
                 onClick={() => {
                   setDisciplina(disciplinaEnum.GEOGRAFIA);
                 }}
@@ -150,6 +153,7 @@ const ModalAddGrade: React.FC<ModalAddGradeProps> = ({ bim }) => {
                 Geografia
               </Button>
               <Button
+                active={disciplina === disciplinaEnum.SOCIOLOGIA ? true : false}
                 onClick={() => {
                   setDisciplina(disciplinaEnum.SOCIOLOGIA);
                 }}

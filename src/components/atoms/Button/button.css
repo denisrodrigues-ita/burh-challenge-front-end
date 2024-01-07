@@ -20,3 +20,7 @@
 .sociologia {
   @apply bg-burh-purple-50/20 text-white p-4 rounded-2xl w-[130px];
 }
+
+.active {
+  @apply border-2 border-white;
+}

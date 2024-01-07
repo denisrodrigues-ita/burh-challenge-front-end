@@ -3,7 +3,6 @@ enum disciplinaEnum {
   ARTES = "ARTES",
   GEOGRAFIA = "GEOGRAFIA",
   SOCIOLOGIA = "SOCIOLOGIA",
-  includes = "includes"
 }
 
 export default disciplinaEnum;

@@ -10,4 +10,5 @@ export interface ButtonProps {
     | "biologia"
     | "sociologia"
     | "geografia";
+  active?: boolean;
 }
