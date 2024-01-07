@@ -1,8 +1,9 @@
 enum disciplinaEnum {
-  BIOLOGIA = "Biologia",
-  ARTES = "Artes",
-  GEOGRAFIA = "Geografia",
-  SOCIOLOGIA = "Sociologia",
+  BIOLOGIA = "BIOLOGIA",
+  ARTES = "ARTES",
+  GEOGRAFIA = "GEOGRAFIA",
+  SOCIOLOGIA = "SOCIOLOGIA",
+  includes = "includes"
 }
 
 export default disciplinaEnum;

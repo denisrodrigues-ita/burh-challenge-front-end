@@ -1,13 +1,14 @@
 const url = process.env.BASE_URL;
 
 const apiGrades = {
-  async getGrades() {
+  async createGrade(data: any) {
     try {
-      const response: Response = await fetch(`${url}/grades`, {
-        method: "GET",
+      const response = await fetch(`${url}/grades`, {
+        method: "POST",
         headers: {
-            "Content-Type": "application/json",
-          },
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -19,65 +20,41 @@ const apiGrades = {
     }
   },
 
-  //   async createGuest(data: any) {
-  //     try {
-  //       const response = await fetch(`${url}/guests`, {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Authorization: `Bearer ${localStorage.getItem("token")}`,
-  //         },
-  //         body: JSON.stringify(data),
-  //       });
-  //       if (!response.ok) {
-  //         throw new Error(`HTTP error! status: ${response.status}`);
-  //       }
-  //       const result = await response.json();
-  //       return { response, result };
-  //     } catch (error) {
-  //       throw error;
-  //     }
-  //   },
+  async getGrades() {
+    try {
+      const response: Response = await fetch(`${url}/grades`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const result = await response.json();
+      return { response, result };
+    } catch (error) {
+      throw error;
+    }
+  },
 
-  //   async changeStatusGuest(code: string, status: boolean, token: string) {
-  //     try {
-  //       const response = await fetch(`${url}/guests/${code}`, {
-  //         method: "PUT",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //         body: JSON.stringify({ attendance_status: status }),
-  //       });
-  //       if (!response.ok) {
-  //         throw new Error(`HTTP error! status: ${response.status}`);
-  //       }
-  //       const result = await response.json();
-  //       return result;
-  //     } catch (error) {
-  //       throw error;
-  //     }
-  //   },
-
-  //   async changeGuestName(code: string, newName: string, token: string) {
-  //     try {
-  //       const response = await fetch(`${url}/guests/${code}`, {
-  //         method: "PUT",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //         body: JSON.stringify({ name: newName }),
-  //       });
-  //       if (!response.ok) {
-  //         throw new Error(`HTTP error! status: ${response.status}`);
-  //       }
-  //       const result = await response.json();
-  //       return result;
-  //     } catch (error) {
-  //       throw error;
-  //     }
-  //   },
+  async deleteGrade(id: number) {
+    try {
+      const response = await fetch(`${url}/grades/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const result = await response.json();
+      return { result, response };
+    } catch (error) {
+      throw error;
+    }
+  },
 };
 
 export default apiGrades;

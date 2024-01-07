@@ -1,3 +1,22 @@
-.btn {
-  @apply bg-burh-yellow-50 text-white font-bold py-2 px-4 rounded-xl;
+.primary {
+  @apply bg-burh-yellow-50 text-white font-bold py-2 px-4 rounded-xl flex items-center justify-center;
+}
+.secondary {
+  @apply bg-burh-yellow-50 text-burh-black-50 py-2 px-4 rounded-xl font-semibold;
+}
+
+.artes {
+  @apply bg-burh-blue-50 text-white p-4 rounded-2xl w-[130px];
+}
+
+.biologia {
+  @apply bg-burh-pink-50/20 text-white p-4 rounded-2xl w-[130px];
+}
+
+.geografia {
+  @apply bg-burh-orange-50/20 text-white p-4 rounded-2xl w-[130px];
+}
+
+.sociologia {
+  @apply bg-burh-purple-50/20 text-white p-4 rounded-2xl w-[130px];
 }

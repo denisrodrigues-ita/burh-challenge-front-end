@@ -1,18 +1,19 @@
 "use client";
 
 import React from "react";
-import { PlusSvg } from "@/assets/icons";
-import { disciplinaEnum, bimestreEnum } from "@/enums";
-import Image from "next/image";
-import Button from "@/components/atoms/Button/button";
 import { apiGrades } from "@/service";
+import { Cards, ModalAddGrade } from "@/components/molecules";
+import { IGrades } from "@/interface";
+import { bimestreEnum } from "@/enums";
 
 const Home: React.FC = () => {
+  const [grades, setGrades] = React.useState<IGrades[]>([]);
+
   React.useEffect(() => {
     try {
       const fetchGrades = async () => {
-        const { result, response } = await apiGrades.getGrades();
-        console.log(result, response);
+        const { result } = await apiGrades.getGrades();
+        setGrades(result);
       };
       fetchGrades();
     } catch (error) {
@@ -21,38 +22,34 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <main className="flex flex-col gap-12">
+    <main className="flex flex-col gap-12 max-w-fit my-12 mx-auto">
       <section>
         <div className="flex justify-between">
           <h3>Bimestre 1</h3>
-          <Button onClick={() => {}} type="button">
-            <Image src={PlusSvg} alt="Plus" className="w-6 h-5" />
-          </Button>
+          <ModalAddGrade bim={bimestreEnum.PRIMEIRO} />
         </div>
+        <Cards grades={grades} bim={bimestreEnum.PRIMEIRO} />
       </section>
       <section>
         <div className="flex justify-between">
           <h3>Bimestre 2</h3>
-          <Button onClick={() => {}} type="button">
-            <Image src={PlusSvg} alt="Plus" className="w-6 h-5" />
-          </Button>
+          <ModalAddGrade bim={bimestreEnum.SEGUNDO} />
         </div>
+        <Cards grades={grades} bim={bimestreEnum.SEGUNDO} />
       </section>
       <section>
         <div className="flex justify-between">
           <h3>Bimestre 3</h3>
-          <Button onClick={() => {}} type="button">
-            <Image src={PlusSvg} alt="Plus" className="w-6 h-5" />
-          </Button>
+          <ModalAddGrade bim={bimestreEnum.TERCEIRO} />
         </div>
+        <Cards grades={grades} bim={bimestreEnum.TERCEIRO} />
       </section>
       <section>
         <div className="flex justify-between">
           <h3>Bimestre 4</h3>
-          <Button onClick={() => {}} type="button">
-            <Image src={PlusSvg} alt="Plus" className="w-6 h-5" />
-          </Button>
+          <ModalAddGrade bim={bimestreEnum.QUARTO} />
         </div>
+        <Cards grades={grades} bim={bimestreEnum.QUARTO} />
       </section>
     </main>
   );
